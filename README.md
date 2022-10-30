@@ -1,6 +1,9 @@
-update-conf.py
-==============
+DO NOT USE - update-conf-py-test-codepipeline
+=============================================
 
+> **IMPORTANT:** This is a fork of `update-conf.py` with the goal to test AWS CodePipeline. This project should NOT be used in production.
+
+[![Test Status](https://github.com/rarylson/update-conf.py/actions/workflows/tests.yml/badge.svg?branch=master&event=push)](https://github.com/rarylson/update-conf.py/actions/workflows/tests.yml)
 [![Test Status](https://github.com/rarylson/update-conf.py/actions/workflows/tests.yml/badge.svg?branch=master&event=push)](https://github.com/rarylson/update-conf.py/actions/workflows/tests.yml)
 [![Coverage Status](https://coveralls.io/repos/github/rarylson/update-conf.py/badge.svg?branch=master)](https://coveralls.io/github/rarylson/update-conf.py?branch=master)
 [![PyPI - Downloads](https://img.shields.io/pypi/dm/update-conf.py.svg)](https://pypi.python.org/pypi/update-conf.py/)
