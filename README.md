@@ -1,7 +1,9 @@
 update-conf-py-DO-NOT-USE
 =========================
 
-> **IMPORTANT:** This is a fork of `update-conf.py` with the goal to test AWS CodePipeline. This project should **NOT** be used in production.
+> **IMPORTANT:** This is a fork of `update-conf.py` with the goal to test AWS CodePipeline as well as the whole AWS Code\* stack. This project should **NOT** be used in production.
+>
+> Also, the code will be stored into 2 repos: CodeCommit, to better test the full AWS Code\* stack; GitHub, as Coveralls free plan only supports it.
 
 [![Test Status](https://img.shields.io/github/workflow/status/rarylson/update-conf.py/tests/master?label=tests&logo=github)](https://github.com/rarylson/update-conf.py/actions/workflows/tests.yml)
 [![Coverage Status](https://img.shields.io/coveralls/github/rarylson/update-conf.py?logo=coveralls)](https://coveralls.io/github/rarylson/update-conf.py?branch=master)
@@ -91,7 +93,7 @@ update-conf-py-do-not-use --help
 You can use the the sample config file (provided within the distributed package) as a start point:
 
 ```bash
-cp ${prefix}/share/update-conf-py-DO-NOT-USE/update-conf-py-do-not-use.conf /etc/update-conf-py-do-not-use.conf
+cp ${prefix}/share/update-conf-py-do-not-use/update-conf-py-do-not-use.conf /etc/update-conf-py-do-not-use.conf
 ```
 
 It's also possible to pass a custom config file via command line args:
