@@ -1,11 +1,11 @@
-DO NOT USE - update-conf-py-test-codepipeline
-=============================================
+update-conf-py-DO-NOT-USE
+=========================
 
-> **IMPORTANT:** This is a fork of `update-conf.py` with the goal to test AWS CodePipeline. This project should NOT be used in production.
+> **IMPORTANT:** This is a fork of `update-conf.py` with the goal to test AWS CodePipeline. This project should **NOT** be used in production.
 
-[![Test Status](https://github.com/rarylson/update-conf.py/actions/workflows/tests.yml/badge.svg?branch=master&event=push)](https://github.com/rarylson/update-conf.py/actions/workflows/tests.yml)
-[![Test Status](https://github.com/rarylson/update-conf.py/actions/workflows/tests.yml/badge.svg?branch=master&event=push)](https://github.com/rarylson/update-conf.py/actions/workflows/tests.yml)
-[![Coverage Status](https://coveralls.io/repos/github/rarylson/update-conf.py/badge.svg?branch=master)](https://coveralls.io/github/rarylson/update-conf.py?branch=master)
+[![Test Status](https://img.shields.io/github/workflow/status/rarylson/update-conf.py/tests/master?label=tests&logo=github)](https://github.com/rarylson/update-conf.py/actions/workflows/tests.yml)
+[![Coverage Status](https://img.shields.io/coveralls/github/rarylson/update-conf.py?logo=coveralls)](https://coveralls.io/github/rarylson/update-conf.py?branch=master)
+[![PyPI - Python](https://img.shields.io/pypi/pyversions/update-conf.py?logo=python&logoColor=white)](https://pypi.python.org/pypi/update-conf.py/)
 [![PyPI - Downloads](https://img.shields.io/pypi/dm/update-conf.py.svg)](https://pypi.python.org/pypi/update-conf.py/)
 [![PyPI - Version](https://img.shields.io/pypi/v/update-conf.py.svg)](https://pypi.python.org/pypi/update-conf.py/)
 [![License](https://img.shields.io/pypi/l/update-conf.py.svg)](LICENSE)
@@ -26,14 +26,24 @@ This project works in Python 3 (3.7 or newer).
 To install:
 
 ```bash
-pip install update-conf.py
+pip install update-conf-py-do-not-use
 ```
 
-It's possible to clone the project in Github and install it via `setuptools`:
+To install via AWS CodeArtifact:
 
 ```bash
-git clone git@github.com:rarylson/update-conf.py.git
-cd update-conf.py
+CODEARTIFACT_AUTH_TOKEN=$(aws codeartifact get-authorization-token \
+        --domain test --query authorizationToken --output text)
+AWS_ACCOUNT=$(aws sts get-caller-identity --query "Account" --output text)
+pip install update-conf-py-do-not-use \
+        -i https://aws:${CODEARTIFACT_AUTH_TOKEN}@test-${AWS_ACCOUNT}.d.codeartifact.us-east-1.amazonaws.com/pypi/pypi/simple/
+```
+
+It's possible to clone the project in AWS CodeCommit and install it via `setuptools`:
+
+```bash
+git clone https://git-codecommit.us-east-1.amazonaws.com/v1/repos/update-conf-py-DO-NOT-USE
+cd update-conf-py-DO-NOT-USE
 python setup.py install
 ```
 
@@ -43,7 +53,7 @@ Usage
 To generate a config file, you can run something like this:
 
 ```bash
-update-conf.py -f /etc/snmp/snmpd.conf
+update-conf-py-do-not-use -f /etc/snmp/snmpd.conf
 ```
 
 The example above will merge the snippets in the directory `/etc/snmp/snmpd.conf.d` into the file `/etc/snmp/snmpd.conf`.
@@ -51,10 +61,10 @@ The example above will merge the snippets in the directory `/etc/snmp/snmpd.conf
 If the directory containing the snippets uses a diferent name pattern, you can pass its name as an argument:
 
 ```bash
-update-conf.py -f /etc/snmp/snmpd.conf -d /etc/snmp/snmpd.d
+update-conf-py-do-not-use -f /etc/snmp/snmpd.conf -d /etc/snmp/snmpd.d
 ```
 
-It's also possible to define frequently used options in a config file. For example, in `/etc/update-conf.py.conf`:
+It's also possible to define frequently used options in a config file. For example, in `/etc/update-conf-py-do-not-use.conf`:
 
 ```ini
 [snmpd]
@@ -65,29 +75,29 @@ dir = /etc/snmp/snmpd.d
 Now, you can run:
 
 ```bash
-update-conf.py -n snmpd
+update-conf-py-do-not-use -n snmpd
 ```
 
 To get help:
 
 ```bash
-update-conf.py --help
+update-conf-py-do-not-use --help
 ```
 
 ### Config files
 
-`update-conf.py` will use the global config file (`/etc/update-conf.py.conf`) or the user-home config file (`~/.update-conf.py.conf`) if they exist.
+`update-conf-py-do-not-use` will use the global config file (`/etc/update-conf-py-do-not-use.conf`) or the user-home config file (`~/.update-conf-py-do-not-use.conf`) if they exist.
 
 You can use the the sample config file (provided within the distributed package) as a start point:
 
 ```bash
-cp ${prefix}/share/update-conf.py/update-conf.py.conf /etc/update-conf.py.conf
+cp ${prefix}/share/update-conf-py-DO-NOT-USE/update-conf-py-do-not-use.conf /etc/update-conf-py-do-not-use.conf
 ```
 
 It's also possible to pass a custom config file via command line args:
 
 ```bash
-update-conf.py -c my_custom_config.conf -n snmpd
+update-conf-py-do-not-use -c my_custom_config.conf -n snmpd
 ```
 
 ### More examples
@@ -105,10 +115,10 @@ And the other is `/etc/snmp/snmpd.conf.d/01-permissions`:
 rocommunity public 192.168.0.0/24
 ```
 
-After running `update-conf.py -f /etc/snmp/snmpd.conf`, the generated config file will be:
+After running `update-conf-py-do-not-use -f /etc/snmp/snmpd.conf`, the generated config file will be:
 
 ```ini
-# Auto-generated by update-conf.py
+# Auto-generated by update-conf-py-do-not-use
 # Do NOT edit this file by hand. Your changes will be overwritten.
 
 syslocation Unknown
@@ -117,14 +127,14 @@ syscontact Root <root@localhost>
 rocommunity public 192.168.0.0/24
 ```
 
-There are cases when it's useful to change the prefix used in the auto-generated comment. After running `update-conf.py -f /etc/php.ini -p ';'`, the generated config will start with:
+There are cases when it's useful to change the prefix used in the auto-generated comment. After running `update-conf-py-do-not-use -f /etc/php.ini -p ';'`, the generated config will start with:
 
 ```ini
-; Auto-generated by update-conf.py
+; Auto-generated by update-conf-py-do-not-use
 ; Do NOT edit this file by hand. Your changes will be overwritten.
 ```
 
-It's also possible to set the prefix used in the auto-generated comment via config file. For instance, in `/etc/update-conf.py.conf`:
+It's also possible to set the prefix used in the auto-generated comment via config file. For instance, in `/etc/update-conf-py-do-not-use.conf`:
 
 ```ini
 [php]

@@ -1,4 +1,4 @@
-"""update_conf_py package
+"""update_conf_py_do_not_use package
 """
 
 from . import main

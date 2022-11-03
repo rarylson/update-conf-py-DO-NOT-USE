@@ -7,7 +7,7 @@
 #     source distribution:
 #     [...]
 #     - all files that matches the data_files metadata"
-# However, 'samples/update-conf.py.conf' wasn't being included in sdist. We
+# However, 'samples/update-conf-py-do-not-use.conf' wasn't being included in sdist. We
 # don't know if it is a bug. Anyway, we're adding it into our 'MANIFEST.in'.
 # See: https://pythonhosted.org/setuptools/setuptools.html
 #      https://docs.python.org/2/distutils/sourcedist.html
@@ -19,3 +19,4 @@ recursive-include tests *
 global-exclude tests/tmp/*
 global-exclude *.pyc
 exclude Makefile
+exclude .github-DISABLED/*

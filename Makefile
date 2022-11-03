@@ -1,7 +1,7 @@
-# update-conf.py Makefile
+# update-conf-py-do-not-use Makefile
 
-PACKAGE=update_conf_py
-NAME=update-conf.py
+PACKAGE=update_conf_py_do_not_use
+NAME=update-conf-do-not-use
 CONF=$(NAME).conf
 PREFIX=/usr/local
 ETC=/etc
@@ -24,7 +24,7 @@ help:
 	@echo "    make coverage-report          generate coverage report in html"
 	@echo "    make build                    build (sdist and bdist_wheel)"
 	@echo "    make check-and-test-publish   run checks and test the process of publishing a version (using Test PyPI)"
-	@echo "    make tag-for-publish          push tag version on GitHub (which triggers the CI/CD pipeline to publish the version on PyPI"
+	@echo "    make tag-for-publish          push tag version on GitHub (which triggers the CI/CD pipeline to publish the version on PyPI (plus Code Artifact)"
 	@echo "    make clean                    cleanup temporary files"
 
 
@@ -105,7 +105,8 @@ check-and-test-publish: build check-build publish-testpypi
 
 # Tag for publish
 
-# It will trigger a CI/CD pipeline that will ending up on publishing on PyPI.
+# It will trigger a CI/CD pipeline that will ending up on publishing on PyPI
+# and AWS CodeArtifact.
 tag-for-publish:
 	git tag "v$(VERSION)"
 	git push origin "v$(VERSION)"

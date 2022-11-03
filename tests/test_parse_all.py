@@ -5,7 +5,7 @@ from io import StringIO
 
 import unittest
 
-from update_conf_py import main
+from update_conf_py_do_not_use import main
 from . import utils
 
 
