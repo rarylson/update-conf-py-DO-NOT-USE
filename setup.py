@@ -1,15 +1,15 @@
-"""update-conf.py setup.py file
+"""update-conf-DO-NOT-USE setup.py file
 """
 
 import os
 from os.path import abspath, dirname, join
 from setuptools import setup
 
-from update_conf_py import main
+from update_conf_py_do_not_use import main
 
 
 # Consts
-GITHUB_URL = "https://github.com/rarylson/update-conf.py"
+GITHUB_URL = "https://us-east-1.console.aws.amazon.com/codesuite/codecommit/repositories/update-conf-py-DO-NOT-USE/"
 README = "README.md"
 
 # Important vars
@@ -36,7 +36,7 @@ setup(
     author_email=main.__email__,
     url=GITHUB_URL,
     keywords="system unix config split merge snippets sysadmin",
-    packages=["update_conf_py"],
+    packages=["update_conf_py_do_not_use"],
 
     # Requirements
     python_requires=">=3.7",
@@ -44,7 +44,7 @@ setup(
     # Classifiers
     # See: https://pypi.python.org/pypi?%3Aaction=list_classifiers
     classifiers=[
-        "Development Status :: 4 - Beta",
+        "Development Status :: 1 - Planning",
         "Environment :: Console",
         "Intended Audience :: System Administrators",
         "License :: OSI Approved",
@@ -63,7 +63,7 @@ setup(
     # The script itself is defined here.
     entry_points={
         "console_scripts": [
-            "update-conf.py = update_conf_py:run",
+            "update-conf-py-do-not-use = update_conf_py_do_not_use:run",
         ],
     },
 

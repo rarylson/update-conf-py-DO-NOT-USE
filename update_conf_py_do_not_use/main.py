@@ -19,8 +19,8 @@ from configparser import ConfigParser
 # About
 __author__ = "Rarylson Freitas"
 __email__ = "rarylson@gmail.com"
-__program__ = "update-conf.py"
-__version__ = "1.1.0"
+__program__ = "update-conf-do-not-use"
+__version__ = "1.1.0.dev0"
 __license__ = "Revised BSD"
 
 # Consts
@@ -186,7 +186,7 @@ def _get_snippets(directory):
                 continue
             for ext in IGNORE_FILES_EXT:
                 if entry.endswith(ext):
-                    _print_verbose("Skiping {0}".format(entry))
+                    _print_verbose("Skipping {0}".format(entry))
                     entry_is_valid = False
                     break
             if entry_is_valid:
