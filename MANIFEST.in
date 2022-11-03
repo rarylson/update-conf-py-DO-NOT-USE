@@ -19,4 +19,4 @@ recursive-include tests *
 global-exclude tests/tmp/*
 global-exclude *.pyc
 exclude Makefile
-exclude .github-DISABLED/*
+exclude .github-DISABLED/workflows/*
