@@ -18,7 +18,8 @@ phases:
   build:
     commands:
       - make check
-      - sudo PATH=$PATH make test-with-coverage
+      # - sudo PATH=$PATH make test-with-coverage
+      - make test-with-coverage
   post_build:
     commands:
       # We do not support Coveralls yet. For now, just a placeholder for future
