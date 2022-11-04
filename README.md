@@ -5,7 +5,9 @@ update-conf-py-DO-NOT-USE
 >
 > Also, the code will be stored into 2 repos: CodeCommit, to better test the full AWS Code\* stack; GitHub, as Coveralls free plan only supports it.
 
-[![Test Status](https://codebuild.us-east-1.amazonaws.com/badges?uuid=eyJlbmNyeXB0ZWREYXRhIjoiMUdoZmg5eXY2SCttckowR2FFUVhmcEdFUUkxd1R2Ums1Nlp5NHUvQ0ZZcnJNR1N2eUJwV3luOGxpWlIyTE5xQlpZK3BhaFJJb1h1OTZPektzRms3TDI0PSIsIml2UGFyYW1ldGVyU3BlYyI6Imx4dEt5dG5vNDB1Z0xIQjgiLCJtYXRlcmlhbFNldFNlcmlhbCI6MX0%3D&branch=master)](https://us-east-1.console.aws.amazon.com/codesuite/codebuild/projects/update-conf-py-DO-NOT-USE-tests)
+TODO: ![](https://img.shields.io/badge/tests-passing-green.svg?logo=amazonaws&color=44cc11)
+
+[![Test Status](https://codebuild.us-east-1.amazonaws.com/badges?uuid=eyJlbmNyeXB0ZWREYXRhIjoiOWZsM0ZQeXEwTWtXd3dIc3cyVFZBcFducUE3NVgrODduT21lMTRrUzMzRXJuQTFrS1oxd1pNcmZhalZscDFWSS9KNHFMQjNDSGdaUWJ1WDA5Vm44VzFnPSIsIml2UGFyYW1ldGVyU3BlYyI6Img0VkhSNlVkOG1HZUIrMGEiLCJtYXRlcmlhbFNldFNlcmlhbCI6MX0%3D&branch=master)
 [![Coverage Status](https://img.shields.io/coveralls/github/rarylson/update-conf.py?logo=coveralls)](https://coveralls.io/github/rarylson/update-conf.py?branch=master)
 [![PyPI - Python](https://img.shields.io/pypi/pyversions/update-conf.py?logo=python&logoColor=white)](https://pypi.python.org/pypi/update-conf.py/)
 [![PyPI - Downloads](https://img.shields.io/pypi/dm/update-conf.py.svg)](https://pypi.python.org/pypi/update-conf.py/)

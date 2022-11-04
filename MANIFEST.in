@@ -20,3 +20,4 @@ global-exclude tests/tmp/*
 global-exclude *.pyc
 exclude Makefile
 exclude .github-DISABLED/workflows/*
+exclude .codepipeline/*

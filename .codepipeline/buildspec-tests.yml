@@ -8,6 +8,9 @@ phases:
       python: 3.10
   pre_build:
     commands:
+      # Add the pyenv global binary dir to PATH, as this isn't done by default
+      # on CodeBuild.
+      - export PATH=$(pyenv prefix)/bin:$PATH
       - python -m pip install -r requirements-test.txt
       # Install `update-conf.py` script to make it available to the
       # 'test_script.py' test module.
