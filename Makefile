@@ -1,7 +1,7 @@
 # update-conf-py-do-not-use Makefile
 
 PACKAGE=update_conf_py_do_not_use
-NAME=update-conf-do-not-use
+NAME=update-conf-py-do-not-use
 CONF=$(NAME).conf
 PREFIX=/usr/local
 ETC=/etc
@@ -59,7 +59,6 @@ test:
 
 test-with-coverage:
 	coverage run setup.py test
-	coverage lcov
 
 coverage-report:
 	coverage html
