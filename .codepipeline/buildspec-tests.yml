@@ -1,0 +1,23 @@
+# tests
+
+version: 0.2
+phases:
+  install:
+    # We do not support test matrix yet. For now, hardcoded to Python 3.10.
+    runtime-versions:
+      python: 3.10
+  pre_build:
+    commands:
+      - python -m pip install -r requirements-test.txt
+      # Install `update-conf.py` script to make it available to the
+      # 'test_script.py' test module.
+      - python setup.py develop
+  build:
+    commands:
+      - make check
+      - sudo PATH=$PATH make test-with-coverage
+  post_build:
+    commands:
+      # We do not support Coveralls yet. For now, just a placeholder for future
+      # support.
+      - ls coverage.lcov

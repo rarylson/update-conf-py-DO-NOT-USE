@@ -5,7 +5,7 @@ update-conf-py-DO-NOT-USE
 >
 > Also, the code will be stored into 2 repos: CodeCommit, to better test the full AWS Code\* stack; GitHub, as Coveralls free plan only supports it.
 
-[![Test Status](https://img.shields.io/github/workflow/status/rarylson/update-conf.py/tests/master?label=tests&logo=github)](https://github.com/rarylson/update-conf.py/actions/workflows/tests.yml)
+[![Test Status](https://codebuild.us-east-1.amazonaws.com/badges?uuid=eyJlbmNyeXB0ZWREYXRhIjoiMUdoZmg5eXY2SCttckowR2FFUVhmcEdFUUkxd1R2Ums1Nlp5NHUvQ0ZZcnJNR1N2eUJwV3luOGxpWlIyTE5xQlpZK3BhaFJJb1h1OTZPektzRms3TDI0PSIsIml2UGFyYW1ldGVyU3BlYyI6Imx4dEt5dG5vNDB1Z0xIQjgiLCJtYXRlcmlhbFNldFNlcmlhbCI6MX0%3D&branch=master)](https://us-east-1.console.aws.amazon.com/codesuite/codebuild/projects/update-conf-py-DO-NOT-USE-tests)
 [![Coverage Status](https://img.shields.io/coveralls/github/rarylson/update-conf.py?logo=coveralls)](https://coveralls.io/github/rarylson/update-conf.py?branch=master)
 [![PyPI - Python](https://img.shields.io/pypi/pyversions/update-conf.py?logo=python&logoColor=white)](https://pypi.python.org/pypi/update-conf.py/)
 [![PyPI - Downloads](https://img.shields.io/pypi/dm/update-conf.py.svg)](https://pypi.python.org/pypi/update-conf.py/)
