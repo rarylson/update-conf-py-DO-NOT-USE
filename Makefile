@@ -59,7 +59,6 @@ test:
 
 test-with-coverage:
 	coverage run setup.py test
-	coverage lcov
 
 coverage-report:
 	coverage html

@@ -1,17 +1,23 @@
 # tests
 
 version: 0.2
+
+env:
+  secrets-manager:
+    COVERALLS_REPO_TOKEN: "update-conf-py-DO-NOT-USE/codebuild:COVERALLS_REPO_TOKEN"
+
 phases:
   install:
     # We do not support test matrix yet. For now, hardcoded to Python 3.10.
     runtime-versions:
-      python: 3.10
+      python: "3.10"
   pre_build:
     commands:
       # Add the pyenv global binary dir to PATH, as this isn't done by default
       # on CodeBuild.
       - export PATH=$(pyenv prefix)/bin:$PATH
       - python -m pip install -r requirements-test.txt
+      - python -m pip install coveralls
       # Install `update-conf.py` script to make it available to the
       # 'test_script.py' test module.
       - python setup.py develop
@@ -20,8 +26,14 @@ phases:
       - make check
       # - sudo PATH=$PATH make test-with-coverage
       - make test-with-coverage
+      - coverage lcov
+      - coverage xml
   post_build:
     commands:
-      # We do not support Coveralls yet. For now, just a placeholder for future
-      # support.
-      - ls coverage.lcov
+      - coveralls
+
+reports:
+  coverage:
+    files:
+      - coverage.xml
+    file-format: COBERTURAXML
