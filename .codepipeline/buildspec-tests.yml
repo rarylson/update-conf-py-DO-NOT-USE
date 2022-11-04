@@ -6,11 +6,33 @@ env:
   secrets-manager:
     COVERALLS_REPO_TOKEN: "update-conf-py-DO-NOT-USE/codebuild:COVERALLS_REPO_TOKEN"
 
+batch:
+  build-list:
+    - identifier: python3_7
+      env:
+        image: aws/codebuild/standard:5.0
+        variables:
+          PYTHON_VERSION: 3.7
+    - identifier: python3_8
+      env:
+        image: aws/codebuild/standard:5.0
+        variables:
+          PYTHON_VERSION: 3.8
+    - identifier: python3_9
+      env:
+        image: aws/codebuild/standard:5.0
+        variables:
+          PYTHON_VERSION: 3.9
+    - identifier: python3_10
+      env:
+        image: aws/codebuild/standard:6.0
+        variables:
+          PYTHON_VERSION: "3.10"
+
 phases:
   install:
-    # We do not support test matrix yet. For now, hardcoded to Python 3.10.
     runtime-versions:
-      python: "3.10"
+      python: ${PYTHON_VERSION}
   pre_build:
     commands:
       # Add the pyenv global binary dir to PATH, as this isn't done by default
@@ -24,7 +46,6 @@ phases:
   build:
     commands:
       - make check
-      # - sudo PATH=$PATH make test-with-coverage
       - make test-with-coverage
       - coverage lcov
       - coverage xml
