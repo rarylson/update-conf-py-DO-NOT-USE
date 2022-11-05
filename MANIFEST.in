@@ -15,6 +15,7 @@ include LICENSE
 include *.md
 include *.txt
 recursive-include samples *
+recursive-include extras *
 recursive-include tests *
 global-exclude tests/tmp/*
 global-exclude *.pyc
