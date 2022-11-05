@@ -51,7 +51,10 @@ phases:
       - coverage xml
   post_build:
     commands:
-      - coveralls
+      # Set correct env vars expected by coveralls
+      # See: https://docs.coveralls.io/supported-ci-services
+      - env
+      - CI_NAME=codebuild CI_BRANCH=${CODEBUILD_SOURCE_VERSION} coveralls
 
 reports:
   coverage:
