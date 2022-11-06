@@ -3,6 +3,8 @@
 version: 0.2
 
 env:
+  variables:
+    PYTHON_VERSION: "3.10"
   secrets-manager:
     COVERALLS_REPO_TOKEN: "update-conf-py-DO-NOT-USE/codebuild:COVERALLS_REPO_TOKEN"
 
@@ -51,10 +53,20 @@ phases:
       - coverage xml
   post_build:
     commands:
+      # Workaround for `CODEBUILD_SOURCE_VERSION` in batch builds
+      # See: https://github.com/thii/aws-codebuild-extras/issues/3
+      - |
+        if [ ! -z "$CODEBUILD_BATCH_BUILD_IDENTIFIER" ]; then
+          build_id=$(aws codebuild batch-get-builds --ids $CODEBUILD_BUILD_ID \
+                  --query "builds[0].buildBatchArn" --output text)
+          source_version=$(aws codebuild batch-get-build-batches \
+                  --ids $build_id --query "buildBatches[0].sourceVersion" \
+                  --output text)
+          export CODEBUILD_SOURCE_VERSION=$source_version
+        fi
       # Set correct env vars expected by coveralls
       # See: https://docs.coveralls.io/supported-ci-services
-      - env
-      - CI_NAME=codebuild CI_BRANCH=${CODEBUILD_SOURCE_VERSION} coveralls
+      - CI_NAME=codebuild CI_BRANCH=${CODEBUILD_SOURCE_VERSION##*/} coveralls
 
 reports:
   coverage:
