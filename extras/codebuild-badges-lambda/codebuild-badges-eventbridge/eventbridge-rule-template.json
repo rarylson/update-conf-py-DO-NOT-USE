@@ -1,0 +1,8 @@
+{
+  "source": ["aws.codebuild"],
+  "detail-type": ["CodeBuild Build State Change"],
+  "detail": {
+    "build-status": ["SUCCEEDED", "FAILED"],
+    "project-name": ["{PROJECT_1}", "{PROJECT_2}"]
+  }
+}

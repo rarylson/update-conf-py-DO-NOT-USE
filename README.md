@@ -5,7 +5,7 @@ update-conf-py-DO-NOT-USE
 >
 > Also, the code will be stored into 2 repos: CodeCommit, to better test the full AWS Code\* stack; GitHub, as Coveralls free plan only supports it.
 
-[![Test Status](https://img.shields.io/endpoint?label=tests&logo=amazonaws&url=https%3A%2F%2Fkpa3zv4xkp3bpxpanhpwly7keu0rxzcd.lambda-url.us-east-1.on.aws%2Fupdate-conf-py-DO-NOT-USE-tests)](https://us-east-1.console.aws.amazon.com/codesuite/codebuild/projects/update-conf-py-DO-NOT-USE-tests/)
+[![Test Status](https://img.shields.io/endpoint?label=tests&logo=amazonaws&url=https%3A%2F%2Fizhet1gjri.execute-api.us-east-1.amazonaws.com%2Fprod%2Fbuild-status%3Fbuild-project%3Dupdate-conf-py-DO-NOT-USE-tests)](https://us-east-1.console.aws.amazon.com/codesuite/codebuild/projects/update-conf-py-DO-NOT-USE-tests/)
 [![Coverage Status](https://img.shields.io/coveralls/github/rarylson/update-conf-py-DO-NOT-USE/master?logo=coveralls)](https://coveralls.io/github/rarylson/update-conf-py-DO-NOT-USE)
 [![PyPI - Python](https://img.shields.io/pypi/pyversions/update-conf.py?logo=python&logoColor=white)](https://pypi.python.org/pypi/update-conf.py/)
 [![PyPI - Downloads](https://img.shields.io/pypi/dm/update-conf.py.svg)](https://pypi.python.org/pypi/update-conf.py/)
