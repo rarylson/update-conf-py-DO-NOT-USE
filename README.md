@@ -44,7 +44,7 @@ CODEARTIFACT_AUTH_TOKEN=$(aws codeartifact get-authorization-token \
         --domain test --query authorizationToken --output text)
 AWS_ACCOUNT=$(aws sts get-caller-identity --query "Account" --output text)
 pip install update-conf-py-do-not-use \
-        -i https://aws:${CODEARTIFACT_AUTH_TOKEN}@$test-${AWS_ACCOUNT}.d.codeartifact.us-east-1.amazonaws.com/pypi/pypi/simple/
+        -i https://aws:${CODEARTIFACT_AUTH_TOKEN}@test-${AWS_ACCOUNT}.d.codeartifact.us-east-1.amazonaws.com/pypi/pypi/simple/
 ```
 
 It's possible to clone the project in AWS CodeCommit and install it via `setuptools`:
