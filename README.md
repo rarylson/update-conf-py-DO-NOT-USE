@@ -7,10 +7,10 @@ update-conf-py-DO-NOT-USE
 
 [![Test Status](https://img.shields.io/endpoint?label=tests&logo=amazonaws&url=https%3A%2F%2Fof958z8mzd.execute-api.us-east-1.amazonaws.com%2Fprod%2Fbuild-status%3Fuuid%3DeyJlbmNyeXB0ZWREYXRhIjoiOWZsM0ZQeXEwTWtXd3dIc3cyVFZBcFducUE3NVgrODduT21lMTRrUzMzRXJuQTFrS1oxd1pNcmZhalZscDFWSS9KNHFMQjNDSGdaUWJ1WDA5Vm44VzFnPSIsIml2UGFyYW1ldGVyU3BlYyI6Img0VkhSNlVkOG1HZUIrMGEiLCJtYXRlcmlhbFNldFNlcmlhbCI6MX0%253D%26branch%3Dmaster)](https://us-east-1.console.aws.amazon.com/codesuite/codebuild/projects/update-conf-py-DO-NOT-USE-tests/)
 [![Coverage Status](https://img.shields.io/coveralls/github/rarylson/update-conf-py-DO-NOT-USE/master?logo=coveralls)](https://coveralls.io/github/rarylson/update-conf-py-DO-NOT-USE)
-[![PyPI - Python](https://img.shields.io/pypi/pyversions/update-conf.py?logo=python&logoColor=white)](https://pypi.python.org/pypi/update-conf.py/)
-[![PyPI - Downloads](https://img.shields.io/pypi/dm/update-conf.py.svg)](https://pypi.python.org/pypi/update-conf.py/)
-[![PyPI - Version](https://img.shields.io/pypi/v/update-conf.py.svg)](https://pypi.python.org/pypi/update-conf.py/)
-[![License](https://img.shields.io/pypi/l/update-conf.py.svg)](LICENSE)
+[![PyPI - Python](https://img.shields.io/pypi/pyversions/update-conf-py-DO-NOT-USE?logo=python&logoColor=white)](https://pypi.python.org/pypi/update-conf-py-DO-NOT-USE/)
+[![PyPI - Downloads](https://img.shields.io/pypi/dm/update-conf-py-DO-NOT-USE.svg)](https://pypi.python.org/pypi/update-conf-py-DO-NOT-USE/)
+[![PyPI - Version](https://img.shields.io/pypi/v/update-conf-py-DO-NOT-USE.svg)](https://pypi.python.org/pypi/update-conf-py-DO-NOT-USE/)
+[![License](https://img.shields.io/pypi/l/update-conf-py-DO-NOT-USE.svg)](LICENSE)
 
 > Default CodeBuild badge: [![Test Status](https://codebuild.us-east-1.amazonaws.com/badges?uuid=eyJlbmNyeXB0ZWREYXRhIjoiOWZsM0ZQeXEwTWtXd3dIc3cyVFZBcFducUE3NVgrODduT21lMTRrUzMzRXJuQTFrS1oxd1pNcmZhalZscDFWSS9KNHFMQjNDSGdaUWJ1WDA5Vm44VzFnPSIsIml2UGFyYW1ldGVyU3BlYyI6Img0VkhSNlVkOG1HZUIrMGEiLCJtYXRlcmlhbFNldFNlcmlhbCI6MX0%3D&branch=master)](https://us-east-1.console.aws.amazon.com/codesuite/codebuild/projects/update-conf-py-DO-NOT-USE-tests/)
 >
@@ -44,7 +44,7 @@ CODEARTIFACT_AUTH_TOKEN=$(aws codeartifact get-authorization-token \
         --domain test --query authorizationToken --output text)
 AWS_ACCOUNT=$(aws sts get-caller-identity --query "Account" --output text)
 pip install update-conf-py-do-not-use \
-        -i https://aws:${CODEARTIFACT_AUTH_TOKEN}@test-${AWS_ACCOUNT}.d.codeartifact.us-east-1.amazonaws.com/pypi/pypi/simple/
+        -i https://aws:${CODEARTIFACT_AUTH_TOKEN}@$test-${AWS_ACCOUNT}.d.codeartifact.us-east-1.amazonaws.com/pypi/pypi/simple/
 ```
 
 It's possible to clone the project in AWS CodeCommit and install it via `setuptools`:
