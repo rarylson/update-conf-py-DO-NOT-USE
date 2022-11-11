@@ -1,0 +1,41 @@
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "AllowCreateLogGroup",
+      "Effect": "Allow",
+      "Action": "logs:CreateLogGroup",
+      "Resource": "arn:aws:logs:us-east-1:{AWS_ACCOUNT}:*"
+    },
+    {
+      "Sid": "AllowPutLogEvents",
+      "Effect": "Allow",
+      "Action": [
+        "logs:CreateLogStream",
+        "logs:PutLogEvents"
+      ],
+      "Resource": [
+        "arn:aws:logs:us-east-1:{AWS_ACCOUNT}:log-group:/aws/lambda/{LAMBDA_FUNCTION}:*"
+      ]
+    },
+    {
+      "Sid": "AllowPutItemDynamoDBTable",
+      "Effect": "Allow",
+      "Action": [
+        "dynamodb:PutItem"
+      ],
+      "Resource": [
+        "arn:aws:dynamodb:us-east-1:{AWS_ACCOUNT}:table/{DYNAMODB_TABLE}"
+      ]
+    },
+    {
+      "Sid": "AllowGetBadgeURL",
+      "Effect": "Allow",
+      "Action": [
+        "codebuild:ListProjects",
+        "codebuild:BatchGetProjects"
+      ],
+      "Resource": "*"
+    }
+  ]
+}
