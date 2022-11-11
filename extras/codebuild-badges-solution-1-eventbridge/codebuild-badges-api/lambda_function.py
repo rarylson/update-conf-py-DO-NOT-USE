@@ -1,5 +1,8 @@
 """ Return CodeBuild build status information for API integration with
-shields.io (integration with API Gateway)
+shields.io
+
+It works standalone (with Lambda HTTP endpoints) or via integration with
+API Gateway.
 """
 
 import json
@@ -9,11 +12,26 @@ import boto3
 
 
 def lambda_handler(event, context):
+    # Validate requests from Lambda HTTPS endpoint
+    if "http" in event["requestContext"]:
+        if event["requestContext"]["http"]["method"] != "GET":
+            return { "statusCode": 405 }
+        if event["requestContext"]["http"]["path"] != "/build-status":
+            return { "statusCode": 404 }
+        if not "build_project" in event["queryStringParameters"]:
+            return { 
+                "statusCode": 400,
+                "body": json.dumps({
+                    "message": "Missing required request parameters: [build-project]"
+                })
+            }
+    # Get "build-project" for Lambda HTTPS endpoint or API Gateway 
+    # integration
     build_project = event["queryStringParameters"]["build-project"]
 
     return {
-        'statusCode': 200,
-        'body': get_shields_io_json(build_project)
+        "statusCode": 200,
+        "body": get_shields_io_json(build_project)
     }
 
 

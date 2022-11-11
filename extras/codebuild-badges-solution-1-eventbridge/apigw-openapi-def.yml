@@ -1,0 +1,35 @@
+# API Gateway API definition
+
+openapi: 3.0.1
+
+info:
+  title: codebuild-badges
+  description: "API for integration with shields.io, returning CodeBuild build status"
+  version: "0.0.0"
+
+paths:
+  /build-status:
+    get:
+      parameters:
+        - name: build-project
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: "Badge info in the format expected by shields.io"
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  schemaVersion:
+                    type: integer
+                  label:
+                    type: string
+                  message:
+                    type: string
+                  color:
+                    type: string
+

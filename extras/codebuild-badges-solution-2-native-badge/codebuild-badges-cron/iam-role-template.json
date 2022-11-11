@@ -27,6 +27,15 @@
       "Resource": [
         "arn:aws:dynamodb:us-east-1:{AWS_ACCOUNT}:table/{DYNAMODB_TABLE}"
       ]
+    },
+    {
+      "Sid": "AllowGetBadgeURL",
+      "Effect": "Allow",
+      "Action": [
+        "codebuild:ListProjects",
+        "codebuild:BatchGetProjects"
+      ],
+      "Resource": "*"
     }
   ]
 }
