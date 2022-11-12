@@ -99,3 +99,4 @@ def get_shields_io_json(uuid, branch=None, tag=None, label=DEFAULT_LABEL):
         "message": build_status,
         "color": color
     }, indent=4)
+
