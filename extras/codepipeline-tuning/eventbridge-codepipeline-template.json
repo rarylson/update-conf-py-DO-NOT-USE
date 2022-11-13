@@ -1,0 +1,12 @@
+{
+  "source": ["aws.codecommit"],
+  "detail-type": ["CodeCommit Repository State Change"],
+  "resources": ["arn:aws:codecommit:us-east-1:{AWS_ACCOUNT}:{REPOSITORY]"],
+  "detail": {
+    "event": ["referenceCreated", "referenceUpdated"],
+    "referenceType": ["tag"],
+    "referenceName": [{
+      "prefix": "v"
+    }]
+  }
+}
