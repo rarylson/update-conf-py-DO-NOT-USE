@@ -20,7 +20,7 @@ from configparser import ConfigParser
 __author__ = "Rarylson Freitas"
 __email__ = "rarylson@gmail.com"
 __program__ = "update-conf-py-do-not-use"
-__version__ = "1.1.0.dev6"
+__version__ = "1.1.0.dev7"
 __license__ = "Revised BSD"
 
 # Consts
