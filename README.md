@@ -13,10 +13,6 @@ update-conf-py-DO-NOT-USE
 [![License](https://img.shields.io/pypi/l/update-conf-py-DO-NOT-USE.svg)](LICENSE)
 
 > Default CodeBuild badge: [![Test Status](https://codebuild.us-east-1.amazonaws.com/badges?uuid=eyJlbmNyeXB0ZWREYXRhIjoiOWZsM0ZQeXEwTWtXd3dIc3cyVFZBcFducUE3NVgrODduT21lMTRrUzMzRXJuQTFrS1oxd1pNcmZhalZscDFWSS9KNHFMQjNDSGdaUWJ1WDA5Vm44VzFnPSIsIml2UGFyYW1ldGVyU3BlYyI6Img0VkhSNlVkOG1HZUIrMGEiLCJtYXRlcmlhbFNldFNlcmlhbCI6MX0%3D&branch=master)](https://us-east-1.console.aws.amazon.com/codesuite/codebuild/projects/update-conf-py-DO-NOT-USE-tests/)
->
-> Badge via custom API based on eventbridge CodeBuild events: [![Test Status](https://img.shields.io/endpoint?label=tests&logo=amazonaws&url=https%3A%2F%2Fizhet1gjri.execute-api.us-east-1.amazonaws.com%2Fprod%2Fbuild-status%3Fbuild-project%3Dupdate-conf-py-DO-NOT-USE-tests)](https://us-east-1.console.aws.amazon.com/codesuite/codebuild/projects/update-conf-py-DO-NOT-USE-tests/)
->
-> Badge via custom API based on proxying the default CodeBuild badge: [![Test Status](https://img.shields.io/endpoint?label=tests&logo=amazonaws&url=https%3A%2F%2Fof958z8mzd.execute-api.us-east-1.amazonaws.com%2Fprod%2Fbuild-status%3Fuuid%3DeyJlbmNyeXB0ZWREYXRhIjoiOWZsM0ZQeXEwTWtXd3dIc3cyVFZBcFducUE3NVgrODduT21lMTRrUzMzRXJuQTFrS1oxd1pNcmZhalZscDFWSS9KNHFMQjNDSGdaUWJ1WDA5Vm44VzFnPSIsIml2UGFyYW1ldGVyU3BlYyI6Img0VkhSNlVkOG1HZUIrMGEiLCJtYXRlcmlhbFNldFNlcmlhbCI6MX0%253D%26branch%3Dmaster)](https://us-east-1.console.aws.amazon.com/codesuite/codebuild/projects/update-conf-py-DO-NOT-USE-tests/)
 
 Generate config files from `conf.d` like directories.
 

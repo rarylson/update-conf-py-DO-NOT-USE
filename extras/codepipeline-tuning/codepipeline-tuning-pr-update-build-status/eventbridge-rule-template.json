@@ -1,0 +1,7 @@
+{
+  "source": ["aws.codebuild"],
+  "detail-type": ["CodeBuild Build State Change"],
+  "detail": {
+    "project-name": ["{PROJECT_1}", "{PROJECT_2}"]
+  }
+}

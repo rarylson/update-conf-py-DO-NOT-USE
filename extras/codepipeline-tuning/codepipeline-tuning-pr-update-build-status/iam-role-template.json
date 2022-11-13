@@ -1,0 +1,31 @@
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "AllowCreateLogGroup",
+      "Effect": "Allow",
+      "Action": "logs:CreateLogGroup",
+      "Resource": "arn:aws:logs:us-east-1:{AWS_ACCOUNT}:*"
+    },
+    {
+      "Sid": "AllowPutLogEvents",
+      "Effect": "Allow",
+      "Action": [
+        "logs:CreateLogStream",
+        "logs:PutLogEvents"
+      ],
+      "Resource": [
+        "arn:aws:logs:us-east-1:{AWS_ACCOUNT}:log-group:/aws/lambda/{LAMBDA_FUNCTION}:*"
+      ]
+    },
+    {
+      "Effect": "AllowCommentOnPR",
+      "Action": [
+          "codecommit:PostCommentForPullRequest"
+      ],
+      "Resource": [
+          "arn:aws:codecommit:us-east-1:{AWS_ACCOUNT}:{REPOSITORY}"
+      ]
+    }
+  ]
+}

@@ -7,12 +7,10 @@ import boto3
 
 
 def lambda_handler(event, context):
-    if (event["detail-type"] == "CodeBuild Build State Change"
-            and event["detail"]["build-status"] in ["SUCCEEDED", "FAILED"]):
-        set_build_status(
-            event["detail"]["project-name"],
-            event["detail"]["build-status"]
-        )
+    set_build_status(
+        event["detail"]["project-name"],
+        event["detail"]["build-status"]
+    )
 
 
 def set_build_status(build_project, build_status):
