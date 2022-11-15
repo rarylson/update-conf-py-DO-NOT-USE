@@ -53,12 +53,13 @@ phases:
       - coverage xml
   post_build:
     commands:
-      # Workarounds for `CODEBUILD_SOURCE_VERSION` in CodePipeline or batch builds
-      # If using CodePipeline, per convention, `SOURCEVARIABLES_BRANCH_NAME` MUST be properly set.
+      # Workarounds for `CODEBUILD_SOURCE_VERSION`
+      # If using CodePipeline (or integration with CodeCommit pull requests), `EXTRA_SOURCE_REF`
+      # MUST be properly set.
       # See: https://github.com/thii/aws-codebuild-extras/issues/3
       - |
-        if [ ! -z "$SOURCEVARIABLES_BRANCH_NAME" ]; then
-          export CODEBUILD_SOURCE_VERSION=/refs/heads/$SOURCEVARIABLES_BRANCH_NAME
+        if [ ! -z "$EXTRA_SOURCE_REF" ]; then
+          export CODEBUILD_SOURCE_VERSION=$EXTRA_SOURCE_REF
         elif [ ! -z "$CODEBUILD_BATCH_BUILD_IDENTIFIER" ]; then
           build_id=$(aws codebuild batch-get-builds --ids $CODEBUILD_BUILD_ID \
                   --query "builds[0].buildBatchArn" --output text)

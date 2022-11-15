@@ -1,0 +1,53 @@
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "AllowCreateLogGroup",
+      "Effect": "Allow",
+      "Action": "logs:CreateLogGroup",
+      "Resource": "arn:aws:logs:us-east-1:{AWS_ACCOUNT}:*"
+    },
+    {
+      "Sid": "AllowPutLogEvents",
+      "Effect": "Allow",
+      "Action": [
+        "logs:CreateLogStream",
+        "logs:PutLogEvents"
+      ],
+      "Resource": [
+        "arn:aws:logs:us-east-1:{AWS_ACCOUNT}:log-group:/aws/lambda/{LAMBDA_FUNCTION}:*"
+      ]
+    },
+    {
+      "Sid": "AllowStartBuild",
+      "Effect": "Allow",
+      "Action": [
+        "codebuild:StartBuild",
+        "codebuild:StartBuildBatch"
+      ],
+      "Resource": [
+        "arn:aws:codebuild:us-east-1:{AWS_ACCOUNT}:project/{BUILD_PROJECT}"
+      ]
+    },
+    {
+      "Sid": "AllowDiscoverBuildProjectForRepository",
+      "Effect": "Allow",
+      "Action": [
+        "codebuild:ListProjects",
+        "codebuild:BatchGetProjects"
+      ],
+      "Resource": "*"
+    },
+    {
+      "Effect": "AllowGetRepoDetailsAndCommentOnPR",
+      "Action": [
+          "codecommit:PostCommentForPullRequest",
+          "codecommit:GetRepository",
+          "codecommit:ListTagsForResource"
+      ],
+      "Resource": [
+          "arn:aws:codecommit:us-east-1:{AWS_ACCOUNT}:{REPOSITORY}"
+      ]
+  }
+  ]
+}
