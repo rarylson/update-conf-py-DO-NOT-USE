@@ -30,15 +30,6 @@
       ]
     },
     {
-      "Sid": "AllowDiscoverBuildProjectForRepository",
-      "Effect": "Allow",
-      "Action": [
-        "codebuild:ListProjects",
-        "codebuild:BatchGetProjects"
-      ],
-      "Resource": "*"
-    },
-    {
       "Effect": "AllowGetRepoDetailsAndCommentOnPR",
       "Action": [
           "codecommit:PostCommentForPullRequest",
@@ -48,6 +39,6 @@
       "Resource": [
           "arn:aws:codecommit:us-east-1:{AWS_ACCOUNT}:{REPOSITORY}"
       ]
-  }
+    }
   ]
 }

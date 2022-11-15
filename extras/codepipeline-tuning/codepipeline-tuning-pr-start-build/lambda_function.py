@@ -1,14 +1,12 @@
 """ Start CodeDeploy builds from CodeCommit pull request events
 """
 
-from distutils.util import strtobool
 import os
 
 import boto3
 
 
 # Constants
-TAG_KEY_ENABLE_BUILD = "CodePipelineTuning/EnableBuildOnPullRequest"
 TAG_KEY_BUILD_PROJECT = "CodePipelineTuning/BuildProjectForPullRequest"
 
 
@@ -21,12 +19,11 @@ def lambda_handler(event, context):
 
     # Get repository details
     repo_details = get_repo_details(repo_name)
-    # Check if feature is enabled
-    if not (TAG_KEY_ENABLE_BUILD in repo_details["tags"]
-            and strtobool(repo_details["tags"][TAG_KEY_ENABLE_BUILD])):
+    # Check if feature 'build on pull request' is enabled
+    if not TAG_KEY_BUILD_PROJECT in repo_details["tags"]:
         return
     # Get build project that should be used
-    build_project = get_proper_build_project(repo_details)
+    build_project = repo_details["tags"][TAG_KEY_BUILD_PROJECT]
     # Start build
     build_info = start_build(
             build_project, source_commit, branch_ref, pull_request_id, repo_name,
@@ -44,27 +41,6 @@ def get_repo_details(repo):
     repo_details["tags"] = tags
 
     return repo_details
-
-
-def get_proper_build_project(repo_details):
-    codebuild_client = boto3.client("codebuild")
-
-    # Check if build project is set via tag
-    if TAG_KEY_BUILD_PROJECT in repo_details["tags"]:
-        return repo_details["tags"][TAG_KEY_BUILD_PROJECT]
-    # Otherwise, fallback to the build project that refers this repository
-    else:
-        all_project_names = codebuild_client.list_projects()["projects"]
-        all_projects = codebuild_client.batch_get_projects(names=all_project_names)["projects"]
-        projects = [p["name"] for p in all_projects if p["source"]["type"] == "CODECOMMIT"
-            and p["source"]["location"] == repo_details["cloneUrlHttp"]]
-        if not projects:
-            raise RuntimeError("No build project found for repository {}".format(
-                    repo_details["repositoryName"]))
-        elif len(projects) > 1:
-            raise RuntimeError("Multiple build projects found for repository {}: {}".format(
-                    repo_details["repositoryName"], projects))
-        return projects[0]
 
 
 def start_build(
